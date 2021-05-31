@@ -1,7 +1,6 @@
 {
   "name": "web-server",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "start": "node src/app.js"
@@ -12,5 +11,15 @@
     "express": "^4.17.1",
     "request": "^2.88.2",
     "socket.io": "^4.1.2"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ioanmatei/node3_weather-website.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ioanmatei/node3_weather-website/issues"
+  },
+  "homepage": "https://github.com/ioanmatei/node3_weather-website#readme",
+  "description": ""
 }
