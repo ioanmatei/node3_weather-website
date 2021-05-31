@@ -8,7 +8,7 @@ const data = {}
 weatherForm.addEventListener('submit', (event) => {
     event.preventDefault()
     const address = search.value
-    const url = `http://localhost:3000/weather?address=${address}`
+    const url = `/weather?address=${address}`
     messageOne.textContent = 'Loading...'
     if (!address) {
         messageOne.textContent = 'Please provide an address'
