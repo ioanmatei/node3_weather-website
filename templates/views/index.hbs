@@ -8,10 +8,11 @@
         <div class="main-content">
             {{>header}}
             <p>Use this site to get your weather</p>
-            <form>
+            <form id="address-form">
                 <input placeholder="Location" type="text">
                 <button>Search</button>
             </form>
+            <button id="send-location">Get weather for your location</button>
 
             <p id="p1" class="error"></p>
             <p id="p2"></p>

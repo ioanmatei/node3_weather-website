@@ -40,27 +40,42 @@ app.get('/help', (req, res) => {
 })
 
 app.get('/weather', (req, res) => {
-    if (!req.query.address) {
-        return res.send('Please provide an address')
+    if (!req.query.address && !req.query.latitude && !req.query.longitude) {
+        return res.send('Please provide an address or a location')
     }
-    const { address } = req.query
-    geocode(address, (error, {latitude, longitude, location} = {}) => {
-        if (error) {
-          return res.send({ error })
-        }
 
+    if (req.query.address) {
+        const { address } = req.query
+        geocode(address, (error, {latitude, longitude, location} = {}) => {
+            if (error) {
+              return res.send({ error })
+            }
+    
+            forecast(latitude, longitude, (error, forecast) => {
+              if (error) {
+                return res.send({ error })
+            }
+                res.send({
+                    forecast,
+                    location,
+                    address
+                })
+            })
+        })
+    }
+
+    if (!req.query.address && req.query.latitude && req.query.longitude) {
+        const {latitude, longitude} = req.query
         forecast(latitude, longitude, (error, forecast) => {
-          if (error) {
+            if (error) {
             return res.send({ error })
         }
             res.send({
-                forecast,
-                location,
-                address
+                forecast
             })
         })
-    })
-})
+    }
+}) 
 
 app.get('/help/*', (req, res) => {
     res.render('404', {
