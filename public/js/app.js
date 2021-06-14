@@ -53,7 +53,7 @@ locationButton.addEventListener('click', (event) =>  {
                         messageThree.textContent = ''
                     } else {
                         messageOne.textContent = ''
-                        messageTwo.textContent = 'To your current location'
+                        messageTwo.textContent = 'At your current location'
                         messageThree.textContent = data.forecast
                         search.value = ''
                 }
